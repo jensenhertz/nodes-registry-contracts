@@ -11,7 +11,7 @@ contract NodesRegistry is Ownable {
     IterableMapping.Map private writers;
     IterableMapping.Map private access;
 
-    function setWriter(address writer_address, string memory backbone_address) public {
+    function setWriter(address writer_address, string memory backbone_address) onlyOwner public {
         writers.set(writer_address, backbone_address);
     }
 
@@ -26,7 +26,7 @@ contract NodesRegistry is Ownable {
         return values;
     }
 
-    function setAccess(address access_address, string memory backbone_address) public {
+    function setAccess(address access_address, string memory backbone_address) onlyOwner public {
         access.set(access_address, backbone_address);
     }
 
